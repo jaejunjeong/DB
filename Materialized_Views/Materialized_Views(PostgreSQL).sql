@@ -5,7 +5,7 @@ CREATE MATERIALIZED VIEW MY_MAT_VIEW
   
   REFRESH MATERIALIZED VIEW MY_MAT_VIEW
 
-#Example
+--Example
 CREATE MATERIALIZED VIEW avg_customer_bill (customerid, averagebillamount) 
   AS SELECT customerid, avg(billedamount) FROM public."FactBilling" 
   group by customerid ;
