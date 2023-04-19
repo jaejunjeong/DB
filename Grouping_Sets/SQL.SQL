@@ -31,3 +31,12 @@ GROUP BY GROUPING SETS(
  (고객명), (사원명)),
  GROUPING SETS((년도)
  );
+
+--Example
+SELECT year,category, sum(billedamount) as totalbilledamount
+FROM "FactBilling"
+LEFT JOIN "DimCustomer"
+on "FactBilling".customerid = "DimCustomer".customerid
+LEFT JOIN "DimMonth"
+ON "FactBilling".monthid="DimMonth".monthid
+GROUP BY grouping sets(year,category);
